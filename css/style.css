@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+
+/* header */
+
+.app-header {
+    padding: 10px;
+    height: 5vh;
+    font-size: 30px;
+    background-color: rgb(76, 90, 111);
+    display: flex;
+    justify-content: space-between;
+}
+
+.dot {
+    color: rgb(139, 88, 139);
+}
+
+
+/* book-app */
+
+.book-edit {
+    background-color: rgb(76, 90, 111);
+    height: 30px;
+}
+
+.book-edit input {
+    border-radius: 5px;
+}
+
+
+/* filter */
+
+.book-filter {
+    padding: 20px;
+    background-color: rgb(76, 90, 111);
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.search input {
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+    width: 50%;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter input {
+    width: 80px;
+    height: 40px;
+    border: none;
+}
+
+.filter>:last-child {
+    cursor: pointer;
+    width: 60px;
+    height: 40px;
+    border: none;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.filter>:first-child {
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-right: gray 1px solid;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+
+/* details */
+
+.book-details {
+    /* position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    padding: 10px; */
+    padding: 20px;
+    height: 90vh;
+    background-color: lightgreen;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+/* list */
+
+.book-list {
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background-color: rgb(76, 90, 111);
+}
+
+
+/* preview */
+
+.book-preview-container {
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+    height: 360px;
+    width: 200px;
+    box-shadow: 0px 0px 9px 5px rgba(19, 83, 134, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(161, 168, 179);
+}
+
+.book-preview-container .sale-img {
+    width: 30px;
+    position: absolute;
+    opacity: 0.4;
+}
+
+.book-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.book-preview h4 {
+    height: 50px;
+}
+
+.book-img {
+    width: 150px;
+    border-radius: 4px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+
+/* footer */
+
+.app-footer {
+    padding: 10px;
+    height: 5vh;
+    background-color: rgb(76, 90, 111);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgrey;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: lightslategray;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+/* home page  */
+
+.app-main {
+    height: 90vh;
+    background-color: rgb(76, 90, 111);
+}
+
+.home-page {
+    height: 90vh;
+    background-color: rgb(76, 90, 111);
+}
+
+.about-page {
+    height: 90vh;
+    background-color: rgb(76, 90, 111);
+}
+
+.book-details-container {
+    height: 90vh;
+    background-color: rgb(76, 90, 111);
+}
+
+.book-edit {
+    height: 90vh;
+    background-color: rgb(76, 90, 111);
+    padding: 50px;
+}
+
+button.btn-add {
+    height: 10%;
+    width: 80px;
+}
+
+.filter>:last-child {
+    height: 30px;
+    width: 90px;
+    border-color: rgb(0, 0, 0);
+}
+
+
+/* user msg */
+
+.user-msg {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding: 10px;
+}
+
+.success {
+    background-color: rgb(27, 180, 27);
+}
+
+.error {
+    background-color: red;
+}
+
+
+/* links */
+
+.router-link-exact-active {
+    color: lightskyblue;
+}
+
+nav {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.router-link {
+    text-decoration: none;
+}

@@ -2,11 +2,9 @@ import { eventBus } from '../services/event-bus-service.js';
 
 export default {
     template: `
-    <transition name="fade">
         <div v-if="msg" class="user-msg" :class="msg.type">
             <p>{{msg.txt}}</p>
         </div>
-    </transition>
     `,
     data() {
         return {

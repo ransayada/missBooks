@@ -1,8 +1,6 @@
 export default {
     template: `
-     <div class="book-filter">
-            <div class="search">
-                <input @input="filter" v-model="filterBy.title" type="text" placeholder="Search...">
+     <div class="search">
                 <input v-model.lazy="listApi.input"  type="text" placeholder="Search Global...">
                 <button @click="getApi">global search</button>
                 <div class="global"  v-for="(item, idx) in listApi.array" :key="item.id">
@@ -10,22 +8,10 @@ export default {
                     <p>{{review.date}}</p>
                     <a class="add-btn" @click="addBook(item.id)">+</a>
                 </div>
-            </div>
-            <form class="filter">
-                <input  v-model.number.lazy="filterBy.fromPrice" type="number" placeholder="From...">
-                <input  v-model.number.lazy="filterBy.toPrice" type="number" placeholder="To...">
-                <button @click.prevent="filter">Filter price</button>
-                <router-link class="btn-add" to="/book/edit" tag="button">Add a book</router-link>
-            </form>
-        </div>
+</div>
     `,
     data() {
         return {
-            filterBy: {
-                title: '',
-                fromPrice: '',
-                toPrice: Infinity
-            },
             listApi: {
                 array: [],
                 input: '',
@@ -34,9 +20,6 @@ export default {
         };
     },
     methods: {
-        filter() {
-            this.$emit('filtered', {...this.filterBy });
-        },
         getApi() {
             var ip = this.listApi.input;
             console.log('~ ip', ip)
@@ -56,7 +39,4 @@ export default {
         }
 
     },
-    computed: {
-
-    }
 }

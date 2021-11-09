@@ -252,17 +252,19 @@ button.btn-add {
 
 .user-msg {
     position: absolute;
+    margin: auto;
     top: 50px;
     right: 0;
     padding: 10px;
+    height: 50px;
 }
 
 .success {
-    background-color: rgb(27, 180, 27);
+    background-color: rgb(116, 168, 116);
 }
 
 .error {
-    background-color: red;
+    background-color: rgb(190, 147, 147);
 }
 
 
@@ -279,4 +281,21 @@ nav {
 
 .router-link {
     text-decoration: none;
+}
+
+.add-review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-input {
+    width: 20%;
+}
+
+.form-control {
+    width: 40%;
+    margin: 10px;
+    height: 130px;
 }

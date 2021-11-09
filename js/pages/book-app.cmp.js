@@ -3,21 +3,18 @@ import { eventBus } from '../services/event-bus-service.js'
 import bookFilter from './../cmps/book-filter.cmp.js'
 import bookDetails from './../pages/book-details.cmp.js'
 import bookList from './../cmps/book-list.cmp.js'
-import bookEdit from './book-edit.cmp.js';
 
 export default {
     template: `
     <section class="book-app">
         <book-filter @filtered="setFilter" /> 
-        <book-list  :books="booksToShow" @remove="removeBook" @selected="selectBook" /> 
-        <book-details v-if="selectedBook" :book="selectedBook" @close="closeDetails" />  
+        <book-list  :books="booksToShow" @remove="removeBook"  /> 
     </section>
     `,
     data() {
         return {
             books: null,
             filterBy: null,
-            selectedBook: null
         }
     },
     created() {
@@ -53,9 +50,9 @@ export default {
         closeDetails() {
             this.selectedBook = null
         },
-        selectBook(book) {
-            this.selectedBook = book;
-        },
+        // selectBook(book) {
+        //     this.selectedBook = book;
+        // },
     },
     computed: {
         booksToShow() {
@@ -74,7 +71,6 @@ export default {
     components: {
         bookFilter,
         bookDetails,
-        bookList,
-        bookEdit
+        bookList
     }
 }

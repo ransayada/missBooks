@@ -1,8 +1,4 @@
-import { utilService } from './util-service.js';
-import { storageService } from './async-storage-service.js';
-
-const BOOKS_KEY = 'books_db4';
-var gBooks = [{
+[{
         "id": "OXeMG8wNskc",
         "title": "metus hendrerit",
         "subtitle": "mi est eros convallis auctor arcu dapibus himenaeos",
@@ -22,8 +18,7 @@ var gBooks = [{
             "amount": 109,
             "currencyCode": "EUR",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "JYOJa2NpSCq",
@@ -45,8 +40,7 @@ var gBooks = [{
             "amount": 44,
             "currencyCode": "EUR",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "1y0Oqts35DQ",
@@ -68,8 +62,7 @@ var gBooks = [{
             "amount": 108,
             "currencyCode": "ILS",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "kSnfIJyikTP",
@@ -91,8 +84,7 @@ var gBooks = [{
             "amount": 30,
             "currencyCode": "EUR",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "f4iuVmbuKCC",
@@ -114,8 +106,7 @@ var gBooks = [{
             "amount": 19,
             "currencyCode": "USD",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "U2rfZO6oBZf",
@@ -137,8 +128,7 @@ var gBooks = [{
             "amount": 91,
             "currencyCode": "USD",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "xI0wrXaaAcq",
@@ -160,8 +150,7 @@ var gBooks = [{
             "amount": 90,
             "currencyCode": "USD",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "9laHCEdSpFy",
@@ -183,8 +172,7 @@ var gBooks = [{
             "amount": 176,
             "currencyCode": "EUR",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "nGhVwZvGCGp",
@@ -206,8 +194,7 @@ var gBooks = [{
             "amount": 116,
             "currencyCode": "USD",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "Q8Q9Lsd03BD",
@@ -229,8 +216,7 @@ var gBooks = [{
             "amount": 145,
             "currencyCode": "EUR",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "bd7a76kARao",
@@ -252,8 +238,7 @@ var gBooks = [{
             "amount": 157,
             "currencyCode": "ILS",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "qKyG0vqeO3e",
@@ -275,8 +260,7 @@ var gBooks = [{
             "amount": 57,
             "currencyCode": "USD",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "2RvT48ZNInj",
@@ -298,8 +282,7 @@ var gBooks = [{
             "amount": 167,
             "currencyCode": "ILS",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "5z2s9pDXAYj",
@@ -321,8 +304,7 @@ var gBooks = [{
             "amount": 150,
             "currencyCode": "USD",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "zBZu5cDEWha",
@@ -344,8 +326,7 @@ var gBooks = [{
             "amount": 58,
             "currencyCode": "ILS",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "aOI7tQuPZ2f",
@@ -367,8 +348,7 @@ var gBooks = [{
             "amount": 78,
             "currencyCode": "USD",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "WBooB82Uvwu",
@@ -390,8 +370,7 @@ var gBooks = [{
             "amount": 118,
             "currencyCode": "ILS",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "xm1z5bbZjlS",
@@ -413,8 +392,7 @@ var gBooks = [{
             "amount": 60,
             "currencyCode": "EUR",
             "isOnSale": false
-        },
-        "reviews": []
+        }
     },
     {
         "id": "u3j6QIKLlJb",
@@ -436,8 +414,7 @@ var gBooks = [{
             "amount": 110,
             "currencyCode": "USD",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     },
     {
         "id": "vxYYYdVlEH3",
@@ -459,164 +436,6 @@ var gBooks = [{
             "amount": 186,
             "currencyCode": "ILS",
             "isOnSale": true
-        },
-        "reviews": []
+        }
     }
 ]
-
-
-//`````````````````````````` async storage system ...
-export const bookService = {
-    query,
-    remove,
-    save,
-    getById,
-    addReview,
-    getEmptyBook,
-    getNextBookId
-};
-
-
-_createBooks();
-
-function query() {
-    return storageService.query(BOOKS_KEY);;
-}
-
-function remove(bookId) {
-    return storageService.remove(BOOKS_KEY, bookId);
-}
-
-function save(book) {
-    if (book.id) return storageService.put(BOOKS_KEY, book);
-    else return storageService.post(BOOKS_KEY, book);
-}
-
-function getById(bookId) {
-    return storageService.get(BOOKS_KEY, bookId);
-}
-
-function getNextBookId(bookId) {
-    return query()
-        .then(books => {
-            const idx = books.findIndex(book => book.id === bookId);
-            return (idx === books.length - 1) ? books[0].id : books[idx + 1].id;
-        });
-}
-
-function addReview(bookId, review) {
-    return getById(bookId).then(book => {
-        if (!book.reviews) book.reviews = [];
-        book.reviews.push(review);
-        return storageService.put(BOOKS_KEY, book)
-    })
-}
-
-function _createBooks() {
-    let books = utilService.loadFromStorage(BOOKS_KEY);
-    if (!books || !books.length) {
-        utilService.saveToStorage(BOOKS_KEY, gBooks);
-    }
-    return books;
-}
-
-function getEmptyBook() {
-    return {
-        id: utilService.makeId,
-        title: '',
-        subtitle: '',
-        authors: [],
-        publishDate: '',
-        description: '',
-        pageCount: '',
-        categories: [],
-        thumbnail: '',
-        language: '',
-        listPrice: {
-            priceAmount: 0,
-            priceCurrency: '',
-            isOnSale: ''
-        },
-        reviews: []
-    };
-}
-
-
-
-//`````````````````````````` sync storage system ... changed into async
-// export const bookService = {
-//     query,
-//     remove,
-//     save,
-//     getEmptyBook
-// };
-
-// function query() {
-//     return gBooks;
-// }
-
-// function remove(bookId) {
-//     const idx = gBooks.findIndex(book => book.id === bookId);
-//     gBooks.splice(idx, 1);
-//     utilService.saveToStorage(BOOKS_KEY, gBooks);
-// }
-
-// function save(book) {
-//     book.id = utilService.makeId();
-//     gBooks.unshift(book);
-//     utilService.saveToStorage(BOOKS_KEY, gBooks);
-// }
-
-// function getEmptyBook() {
-//     return {
-//         id: '',
-//         title: '',
-//         subtitle: '',
-//         authors: [],
-//         publishDate: '',
-//         description: '',
-//         pageCount: '',
-//         categories: [],
-//         thumbnail: '',
-//         language: '',
-//         listPrice: {
-//             priceAmount: 0,
-//             priceCurrency: '',
-//             isOnSale: ''
-//         }
-//     };
-// }
-
-// function _createBooks() {
-//     let books = utilService.loadFromStorage(BOOKS_KEY);
-//     if (!books || !books.length) {
-//         books = [];
-//         books.push(_createBook('metus hendrerit', "mi est eros convallis auctor arcu dapibus himenaeos", ["Barbara Cartland"], 2008, "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse", 253, ["Computers", "Hack"], "http://coding-academy.org/books-photos/1.jpg", "en", 20, "NIS", false));
-//         books.push(_createBook("morbi", "mi est eros convallis auctor arcu dapibus himenaeos", ["Barbara Cartland"], 2019, "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse", 713, ["Computers", "Hack"], "http://coding-academy.org/books-photos/2.jpg", "en", 109, "EUR", false));
-//         books.push(_createBook('hendrerit', "mi est eros convallis auctor arcu dapibus himenaeos", ["Barbara Cartland"], 2016, "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse", 92, ["Computers", "Hack"], "http://coding-academy.org/books-photos/3.jpg", "en", 40, "USD", false));
-//         books.push(_createBook('metus', "mi est eros convallis auctor arcu dapibus himenaeos", ["Barbara Cartland"], 1989, "placerat nisi sodales suscipit tellus tincidunt mauris elit sit luctus interdum ad dictum platea vehicula conubia fermentum habitasse congue suspendisse", 564, ["Computers", "Hack"], "http://coding-academy.org/books-photos/4.jpg", "en", 50, "EUR", false));
-//         utilService.saveToStorage(BOOKS_KEY, books);
-//     }
-//     return books;
-// }
-
-// function _createBook(title = '', subtitle = '', authors = [], publishDate = '', description = '', pageCount = 0, categories = [], thumbnail = '', language = 'en', priceAmount = 0, priceCurrency = ILS, isOnSale = false) {
-//     const book = {
-//         id: utilService.makeId(),
-//         title,
-//         subtitle,
-//         authors,
-//         publishDate,
-//         description,
-//         pageCount,
-//         categories,
-//         thumbnail,
-//         language,
-//         listPrice: {
-//             priceAmount,
-//             priceCurrency,
-//             isOnSale
-//         }
-//     };
-//     return book;
-// }
